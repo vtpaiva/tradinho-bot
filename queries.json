@@ -1,0 +1,73 @@
+{
+    "Fed": {
+      "q": "fed OR (federal AND reserve)",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Interest Rates": {
+      "q": "interest AND rates",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Inflation": {
+      "q": "inflation",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Stock": {
+      "q": "stock",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "NYSE": {
+      "q": "NYSE",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "NASDAQ": {
+      "q": "NYSE",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Recession": {
+      "q": "Recession",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "GDP": {
+      "q": "GDP",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Unemployment/Employment Rate": {
+      "q": "rates AND (unemployment OR employment)",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Bear Market": {
+      "q": "bear AND market",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Bull Market": {
+      "q": "bull AND market AND NOT red",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Trade War": {
+      "q": "trade AND war",
+      "Section": "business",
+      "production-office": "us"
+    },
+    "Tech Stocks": {
+      "q": "stock",
+      "Section": "technology",
+      "production-office": "us"
+    },
+    "S&P 500": {
+      "q": "S&P",
+      "Section": "business",
+      "production-office": "us"
+    }
+  }
+  
