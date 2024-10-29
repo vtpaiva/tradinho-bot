@@ -4,18 +4,20 @@ import requests, json, re, pandas as pd
 OK = 200
 FIRST_DATE = datetime.strptime('2009-12-31', "%Y-%m-%d") 
 DATE_LIMIT = datetime.strptime('2023-12-30', "%Y-%m-%d") 
-API_KEY = "your_api_key"  # Replace with your The Guardian API key
+API_KEY = "68847d5b-841f-4120-9130-250e0d6d58bc"  # Replace with your The Guardian API key
 BASE_URL = "https://content.guardianapis.com/search"
 EXTRACT_FIELDS = ['sectionId', 'webPublicationDate', 'webTitle']
 
 """Sends a request to The Guardian API to fetch articles.
 
 Parameters:
-    - config: dictionary containing parameters `q`, `Section`, and `production-office`.
+    - item: dictionary containing request's parameters.
+    - start_date: start date to request headlines.
+    - fortnight: row's fortnight.
     - page_size: number of articles per page.
 
 Returns:
-    - JSON with article data."""
+    - Pandas dataframe with headlines."""
 
 def fetch_articles(item: dict, start_date: datetime, fortnight: int, page_size: int = 200) -> pd.DataFrame:
     frame, end_date = [], start_date + timedelta(days=15)
@@ -53,31 +55,48 @@ def fetch_articles(item: dict, start_date: datetime, fortnight: int, page_size: 
         print("Error fetching articles:", response.status_code)
         return None
 
+"""Increases the database from the current state, fetching headlines.
+
+Parameters:
+    - database: pandas database's path.
+    - param_file: json file with request's parameters.
+
+Returns:
+    - None."""
+
 def increasing_database(database: str = 'tradinho-database.csv', param_file: str = 'queries.json') -> None:
     base = pd.read_csv(database)
 
     with open(param_file, "r") as file:
         json_data = json.load(file)
 
+    # If the database has at least one row, increase it.
     if base.shape[0] > 0:
         last_row = base.iloc[-1]
 
         last_fortnight = counter = last_row['fortnight'] + 1
         last_date = FIRST_DATE + timedelta(days=int(15*last_fortnight + 2))
 
+        # Increase until the date limit.
         while DATE_LIMIT > last_date:
+            final_fetch = pd.DataFrame()
+
+            # Fetch and concatenate.
             for _, params in json_data.items():
                 fetch_df = fetch_articles(params, start_date=last_date, fortnight=counter)
 
                 if fetch_df is None:
                     break
 
-                base = pd.concat([base, fetch_df])
+                final_fetch = pd.concat([final_fetch, fetch_df])
 
+            final_fetch = final_fetch.drop_duplicates(subset='webTitle')
+            final_fetch = final_fetch.sort_values(by=['fortnight', 'webPublicationDate'])
+
+            base = pd.concat([base, final_fetch])
             base.to_csv('tradinho-database.csv', index=False)
 
-            last_date = last_date + timedelta(days=15)
-
+            last_date = last_date + timedelta(days=16)
             counter += 1
     else:
         print("Base doesn't exists.")
