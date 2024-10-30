@@ -6,19 +6,15 @@ This repository was created to store the process of ***Tradinho Bot***, a brazil
 
 The major language in use is Python, this includes web scrapping, data analysis, data engineering and model training.
 
-To make it possible, we're using the **The Guardian** *API* to fetch related news headlines and, in order to get the **S&P 500** stocks prices, **Yahoo Finance** *API* along the years of interest (2009-2023).
+To make it possible, we're using the **The Guardian** *API* to fetch related news headlines and, in order to get the **S&P 500** stocks prices, **Yahoo Finance** and **FRED** *APIs* along the years of interest (2009-2023).
 
 <div style="display: flex; justify-content: center;">
-    <img src="img/Tradinho.png" alt="Tradinho Logo" style="border-radius: 50%; width: 400px; height: 400px;">
+    <img src="assets/Tradinho.png" alt="Tradinho Logo" style="border-radius: 50%; width: 400px; height: 400px;">
 </div>
-
-# Steps
-
-In this section, will be written the step-by-step process to achieve the final model.
 
 ## Web scrapping
 
-First, on the web scrapping phase, we've used Python to make requests for **The Guardian** *API* and **Yahoo Finance** *API*.
+First, on the web scrapping phase, we've used Python to make requests for **The Guardian** *API*, **Yahoo Finance** *API* and **FRED** *API*.
 
 This code is related to to main process of building the news's headlines database from **The Guardian**.
 

@@ -4,7 +4,7 @@ import requests, json, re, pandas as pd
 OK = 200 # Ok return value from request.
 FIRST_DATE = datetime.strptime('2009-12-31', "%Y-%m-%d") # First date of interest of data.
 DATE_LIMIT = datetime.strptime('2023-12-30', "%Y-%m-%d") # Last date od interest of data.
-API_KEY = "your_apu_key"  # The Guardian API key (replace with your The Guardian API key).
+API_KEY = "your_api_key"  # The Guardian API key (replace with your The Guardian API key).
 BASE_URL = "https://content.guardianapis.com/search" # Base URL to The Guardian API.
 EXTRACT_FIELDS = ['sectionId', 'webPublicationDate', 'webTitle'] # Interest fields from request.
 
@@ -20,7 +20,7 @@ Returns:
     - Pandas dataframe with headlines."""
 
 def fetch_articles(item: dict, start_date: datetime, fortnight: int, page_size: int = 200) -> pd.DataFrame:
-    frame, end_date = [], start_date + timedelta(days=15)
+    frame, end_date = [], start_date + timedelta(days=14)
 
     # Request parameters
     params = {
@@ -99,7 +99,7 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
         last_row = base.iloc[-1]
 
         last_fortnight = counter = last_row['fortnight'] + 1
-        last_date = FIRST_DATE + timedelta(days=int(15*last_fortnight + 2))
+        last_date = FIRST_DATE + timedelta(days=int(14*last_fortnight + 2))
 
         # Increase until the date limit.
         while DATE_LIMIT > last_date:
