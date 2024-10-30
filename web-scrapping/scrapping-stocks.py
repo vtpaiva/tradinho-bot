@@ -1,7 +1,7 @@
 import pandas as pd
 from fredapi import Fred
 import yfinance as yf
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 # Usar a chave API do FRED
 fred = Fred(api_key='your_api_key')
@@ -9,7 +9,7 @@ fred = Fred(api_key='your_api_key')
 # Função para coletar dados com tratamento de erros
 def collect_fred_series(series_id, series_name):
     try:
-        data = fred.get_series(series_id, start='2009-12-30', end='2023-12-30')
+        data = fred.get_series(series_id, start='2009-12-30', end='2024-10-30')
         print(f"{series_name} coletado com sucesso!")
         return data
     except Exception as e:
@@ -34,7 +34,7 @@ money_supply = collect_fred_series('M2SL', 'Oferta de Dinheiro (M2)')
 ppi = collect_fred_series('PPIACO', 'Índice de Preços ao Produtor')
 
 # Coletar os preços do S&P500 pelo Yahoo Finance
-sp500 = yf.download('^GSPC', start='2009-12-30', end='2023-12-30')
+sp500 = yf.download('^GSPC', start='2009-12-30', end='2024-10-23')
 
 # Convertendo o índice de datas do S&P 500 para o formato sem UTC
 sp500.index = sp500.index.tz_localize(None)
@@ -71,8 +71,7 @@ df_final['NFCI'] = df_final['NFCI'].round(3)
 start_date = pd.to_datetime("2009-12-30")
 df_final['fortnight'] = ((df_final.index - start_date) // timedelta(days=14)).astype(int)
 
-# Remover linhas duplicadas, mantendo apenas a primeira ocorrência de cada quinzena
-df_final = df_final.drop_duplicates(subset=['fortnight'], keep='first')
+df_final = df_final.drop_duplicates(subset='fortnight', keep='first')
 
 # Salvando o DataFrame consolidado em um arquivo CSV
-df_final.to_csv('tradinho-stocks.csv', index=False)
+df_final.to_csv('tradinho-stocks.csv')

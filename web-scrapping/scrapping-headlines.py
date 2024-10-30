@@ -3,7 +3,7 @@ import requests, json, re, pandas as pd
 
 OK = 200 # Ok return value from request.
 FIRST_DATE = datetime.strptime('2009-12-31', "%Y-%m-%d") # First date of interest of data.
-DATE_LIMIT = datetime.strptime('2023-12-30', "%Y-%m-%d") # Last date od interest of data.
+DATE_LIMIT = datetime.strptime('2024-10-30', "%Y-%m-%d") # Last date od interest of data.
 API_KEY = "your_api_key"  # The Guardian API key (replace with your The Guardian API key).
 BASE_URL = "https://content.guardianapis.com/search" # Base URL to The Guardian API.
 EXTRACT_FIELDS = ['sectionId', 'webPublicationDate', 'webTitle'] # Interest fields from request.
@@ -88,7 +88,7 @@ Parameters:
 Returns:
     - None."""
 
-def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 'the-guardian-queries.json') -> None:
+def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 'web-scrapping/the-guardian-queries.json') -> None:
     base = pd.read_csv(database)
 
     with open(param_file, "r") as file:

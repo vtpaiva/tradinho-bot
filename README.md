@@ -8,9 +8,7 @@ The major language in use is Python, this includes web scrapping, data analysis,
 
 To make it possible, we're using the **The Guardian** *API* to fetch related news headlines and, in order to get the **S&P 500** stocks prices, **Yahoo Finance** and **FRED** *APIs* along the years of interest (2009-2023).
 
-<div style="display: flex; justify-content: center;">
-    <img src="assets/Tradinho.png" alt="Tradinho Logo" style="border-radius: 50%; width: 400px; height: 400px;">
-</div>
+![Tradinho Logo](assets/Tradinho.png)
 
 ## Web scrapping
 
