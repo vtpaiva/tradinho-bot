@@ -71,7 +71,5 @@ df_final['NFCI'] = df_final['NFCI'].round(3)
 start_date = pd.to_datetime("2009-12-30")
 df_final['fortnight'] = ((df_final.index - start_date) // timedelta(days=14)).astype(int)
 
-df_final = df_final.drop_duplicates(subset='fortnight', keep='first')
-
 # Salvando o DataFrame consolidado em um arquivo CSV
 df_final.to_csv('tradinho-stocks.csv')
