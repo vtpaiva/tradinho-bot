@@ -22,8 +22,8 @@ First, on the web scrapping phase, we've used Python to make requests for **The 
 
 This code is related to to main process of building the news's headlines database from **The Guardian**.
 
-```
-def increasing_database(database: str = 'tradinho-database.csv', param_file: str = 'queries.json') -> None:
+```python
+def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 'the-guardian-queries.json') -> None:
     base = pd.read_csv(database)
 
     with open(param_file, "r") as file:
@@ -41,7 +41,7 @@ def increasing_database(database: str = 'tradinho-database.csv', param_file: str
             final_fetch = fetch_to_dataframe(json_data, last_date, counter)
 
             base = pd.concat([base, final_fetch])
-            base.to_csv('tradinho-database.csv', index=False)
+            base.to_csv('tradinho-headlines.csv', index=False)
 
             last_date = last_date + timedelta(days=16)
             counter += 1
