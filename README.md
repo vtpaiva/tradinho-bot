@@ -48,4 +48,5 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
 ## Authors
 
 Vitor Augusto Paiva de Brito
+
 Henrique de Oliveira Araujo
