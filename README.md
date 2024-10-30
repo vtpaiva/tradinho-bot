@@ -1,5 +1,7 @@
 # tradinho-bot
 
+<img align="right" src="assets/Tradinho.png" alt="Tradinho Logo" width="250px" height="auto" border-radius="50%">
+
 This repository was created to store the process of ***Tradinho Bot***, a brazilian citzen inspired model to predict **S&P 500** stocks prices along the last years to participate of the *Itau Quant Challenge 2024*.
 
 ## Resources
@@ -7,8 +9,6 @@ This repository was created to store the process of ***Tradinho Bot***, a brazil
 The major language in use is Python, this includes web scrapping, data analysis, data engineering and model training.
 
 To make it possible, we're using the **The Guardian** *API* to fetch related news headlines and, in order to get the **S&P 500** stocks prices, **Yahoo Finance** and **FRED** *APIs* along the years of interest (2009-2023).
-
-<img src="assets/Tradinho.png" alt="Tradinho Logo" style="width:250px; height: auto; border-radius: 50%;">
 
 ## Web scrapping
 
@@ -48,9 +48,10 @@ With this, it was possible to extract data from the APIs from December 30, 2009 
 ## Authors
 
 <a href="https://github.com/HerbGlrt">
-    <img src="https://avatars.githubusercontent.com/u/62862399?v=4" alt="Author 2" style="width: 100px; height: auto; border-radius: 50%;">
+    <img src="https://avatars.githubusercontent.com/u/62862399?v=4" alt="Author 1" width="100px" height="auto" style="border-radius: 50%;">
 </a>
 
+
 <a href="https://github.com/vtpaiva">
-    <img src="https://avatars.githubusercontent.com/u/105892477?v=4" alt="Author 1" style="width: 100px; height: auto; border-radius: 50%;">
+    <img src="https://avatars.githubusercontent.com/u/105892477?v=4" alt="Author 2" width="100px" height="auto" style="border-radius: 50%;">
 </a>
