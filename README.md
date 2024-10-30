@@ -43,8 +43,14 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
         print("Database doesn't exists.")
 ```
 
+With this, it was possible to extract data from the APIs from December 30, 2009 to October 30, 2024 and build the datasets for analysis and training.
+
 ## Authors
 
-Vitor Augusto Paiva de Brito
+<a href="https://github.com/HerbGlrt">
+    <img src="https://avatars.githubusercontent.com/u/62862399?v=4" alt="Author 2" style="width: 100px; height: auto; border-radius: 50%;">
+</a>
 
-Henrique de Oliveira Araujo
+<a href="https://github.com/vtpaiva">
+    <img src="https://avatars.githubusercontent.com/u/105892477?v=4" alt="Author 1" style="width: 100px; height: auto; border-radius: 50%;">
+</a>
