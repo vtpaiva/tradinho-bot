@@ -42,3 +42,9 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
     else:
         print("Database doesn't exists.")
 ```
+
+## Authors
+
+Vitor Augusto Paiva de Brito
+
+Henrique de Oliveira Araujo
