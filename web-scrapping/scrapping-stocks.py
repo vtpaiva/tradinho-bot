@@ -72,4 +72,4 @@ start_date = pd.to_datetime("2009-12-30")
 df_final['fortnight'] = ((df_final.index - start_date) // timedelta(days=14)).astype(int)
 
 # Salvando o DataFrame consolidado em um arquivo CSV
-df_final.to_csv('tradinho-stocks.csv')
+df_final.to_csv('stocks.csv', index=False)
