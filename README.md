@@ -65,6 +65,10 @@ Two forecasting tasks are implemented:
 
 Finally, the outputs from these regressions are combined using a weighted average to generate the final prediction and trading signal.
 
+## Prediction Diagram
+
+![Prediction flowchart](https://i.imgur.com/Z4kEsUP.jpeg)
+
 ## Authors
 
 <a href="https://github.com/HerbGlrt">
