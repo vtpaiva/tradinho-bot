@@ -45,6 +45,26 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
 
 With this, it was possible to extract data from the APIs from December 30, 2009 to October 30, 2024 and build the datasets for analysis and training.
 
+## Bot Operation
+
+This report explores the application of machine learning methods to predict variations in the S&P500 index prices. It leverages economic and sentiment-based data to structure a **Quant** algorithm designed for real-world market applications. The analysis is based on publicly available data, including news headlines retrieved through the British newspaper *The Guardian's API* and financial data from the S&P500 index sourced via *Yahoo Finance's API*. Additionally, fifteen U.S. economic indicators, such as interest and unemployment rates, were incorporated to create a robust dataset reflecting market conditions, covering the period from late 2009 to October 2024.
+
+The primary application will be named **Tradinho**, a nod to a Brazilian investor persona, aiming to build a charismatic yet serious and reliable image of a national investor growing their wealth by investing in foreign stocks.
+
+### Main Objective
+The central goal is to forecast the price difference of the S&P500 index over defined two-week intervals (*fortnights*). In a real-world scenario, the algorithm will use the forecast generated on the last day of a *fortnight* to predict the relative price change for the next interval. This prediction will serve as the basis for a trading signal, executed at the beginning of the following window.
+
+### Methodology
+The theoretical framework assumes that future asset prices depend on U.S. economic indicators and the global economic context. Therefore:
+1. **Historical Data Feedback:** The algorithm incorporates historical prices and economic indicators for temporal sequence learning.
+2. **Sentiment Analysis:** Global socioeconomic sentiment is analyzed using headlines from *The Guardian* to understand how global trends impact asset prices.
+
+Two forecasting tasks are implemented:
+- **Time Series Analysis:** U.S. economic data and daily S&P500 prices from *FRED* and *Yahoo Finance* are used to predict internal price variations within a *fortnight*.
+- **Sentiment Analysis:** Global socioeconomic sentiment derived from news is used to predict price differences.
+
+Finally, the outputs from these regressions are combined using a weighted average to generate the final prediction and trading signal.
+
 ## Authors
 
 <a href="https://github.com/HerbGlrt">
