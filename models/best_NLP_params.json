@@ -1,0 +1,66 @@
+{
+    "classification": {
+        "epochs": 50,
+        "optimizer": "adam",
+        "architecture": [
+            {
+                "type": "Dense",
+                "units": 100,
+                "activation": "relu",
+                "kernel_regularizer": "l2(0.1)"
+            },
+            {
+                "type": "Dense",
+                "units": 100,
+                "activation": "relu",
+                "kernel_regularizer": "l2(0.1)"
+            },
+            {
+                "type": "Dense",
+                "units": 100,
+                "activation": "relu",
+                "kernel_regularizer": "l2(0.1)"
+            },
+            {
+                "type": "Dense",
+                "units": 1,
+                "activation": "sigmoid"
+            }
+        ],
+        "loss": "binary_crossentropy",
+        "metrics": [
+            "accuracy"
+        ]
+    },
+    "regression": {
+        "epochs": 100,
+        "optimizer": "rmsprop",
+        "architecture": [
+            {
+                "type": "Dense",
+                "units": 250,
+                "activation": "relu"
+            },
+            {
+                "type": "Dense",
+                "units": 250,
+                "activation": "relu"
+            },
+            {
+                "type": "Dense",
+                "units": 250,
+                "activation": "relu"
+            },
+            {
+                "type": "Dense",
+                "units": 1,
+                "activation": "linear"
+            }
+        ],
+        "loss": "mean_squared_error",
+        "metrics": [
+            "mean_absolute_error",
+            "root_mean_squared_error"
+        ]
+    }
+}
