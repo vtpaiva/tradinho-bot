@@ -4,7 +4,7 @@ import yfinance as yf
 from datetime import datetime, timedelta
 
 # Usar a chave API do FRED
-fred = Fred(api_key='your_api_key')
+fred = Fred(api_key='565b58a7faa6e4170fb2bc5e54a20e7f')
 
 # Função para coletar dados com tratamento de erros
 def collect_fred_series(series_id, series_name):
@@ -72,4 +72,4 @@ start_date = pd.to_datetime("2009-12-30")
 df_final['fortnight'] = ((df_final.index - start_date) // timedelta(days=14)).astype(int)
 
 # Salvando o DataFrame consolidado em um arquivo CSV
-df_final.to_csv('stocks.csv', index=False)
+df_final.to_csv('tradinho-stocks.csv')

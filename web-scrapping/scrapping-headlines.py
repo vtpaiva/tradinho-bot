@@ -106,7 +106,7 @@ def update_database(database: str = 'tradinho-headlines.csv', param_file: str = 
             final_fetch = fetch_to_dataframe(json_data, last_date, counter)
 
             base = pd.concat([base, final_fetch])
-            base.to_csv('tradinho-headlines.csv', index=False)
+            base.to_csv('headlines.csv', index=False)
 
             last_date = last_date + timedelta(days=16)
             counter += 1
